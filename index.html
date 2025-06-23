@@ -158,7 +158,7 @@
     </div>
 
     <div id="right-panel" class="panel">
-        <h1>Paste Chinese text here to listen with Yaoyao's voice</h1>
+        <h1>Paste Chinese text here to listen with Xiaoxiao's voice</h1>
         <div id="text-area" contenteditable="true">
             Paste text here...
         </div>
@@ -202,11 +202,11 @@
 
     function initializeVoices() {
         const voices = speechSynthesis.getVoices();
-        chineseTTSVoice = voices.find(v => v.name === "Microsoft Yaoyao Online (Natural) - Chinese (Mainland)") || voices.find(v => v.name.includes("Yaoyao") && v.lang === "zh-CN");
+        chineseTTSVoice = voices.find(v => v.name === "Microsoft Xiaoxiao Online (Natural) - Chinese (Mainland)") || voices.find(v => v.name.includes("Xiaoxiao") && v.lang === "zh-CN");
         if (chineseTTSVoice) {
             console.log("Successfully found Chinese voice:", chineseTTSVoice.name);
         } else {
-            console.warn("Yaoyao voice not found. The browser's default Chinese voice will be used.");
+            console.warn("Xiaoxiao voice not found. The browser's default Chinese voice will be used.");
         }
     }
 
