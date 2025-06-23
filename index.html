@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8"/>
-    <title>Combined German Q&A Recorder & Text Reader</title>
+    <title>Combined Chinese Q&A Recorder & Text Reader</title>
     <style>
         /* --- General Layout --- */
         html, body {
@@ -145,7 +145,7 @@
 
 <div id="main-container">
     <div id="left-panel" class="panel">
-        <h1>Questions and Answers – Voice Recording (German)</h1>
+        <h1>Questions and Answers – Voice Recording (Chinese)</h1>
         <h2>📂 Import questions from file:</h2>
         <input accept=".docx,.txt" id="file-input" type="file"/>
         <h2>📥 Import Q&A from ZIP:</h2>
@@ -158,7 +158,7 @@
     </div>
 
     <div id="right-panel" class="panel">
-        <h1>Paste German text here to listen with Amala's voice</h1>
+        <h1>Paste Chinese text here to listen with Amala's voice</h1>
         <div id="text-area" contenteditable="true">
             Paste text here...
         </div>
@@ -182,7 +182,7 @@
     // =================================================================
     // =========== SHARED & GLOBAL VARIABLES AND FUNCTIONS ===========
     // =================================================================
-    let germanTTSVoice = null;
+    let chineseTTSVoice = null;
     let recognition;
     let mediaRecorder;
     let audioChunks = [];
@@ -202,11 +202,11 @@
 
     function initializeVoices() {
         const voices = speechSynthesis.getVoices();
-        germanTTSVoice = voices.find(v => v.name.includes("Yaoyao") && v.lang === "zh-CN");
-        if (germanTTSVoice) {
-            console.log("Successfully found German voice:", germanTTSVoice.name);
+        chineseTTSVoice = voices.find(v => v.name.includes("Yaoyao") && v.lang === "zh-CN");
+        if (chineseTTSVoice) {
+            console.log("Successfully found Chinese voice:", chineseTTSVoice.name);
         } else {
-            console.warn("Amala voice not found. The browser's default German voice will be used.");
+            console.warn("Amala voice not found. The browser's default Chinese voice will be used.");
         }
     }
 
@@ -304,7 +304,7 @@
         }
         currentUtterance = new SpeechSynthesisUtterance(cleanedText);
         currentUtterance.lang = 'zh-CN';
-        if (germanTTSVoice) currentUtterance.voice = germanTTSVoice;
+        if (chineseTTSVoice) currentUtterance.voice = chineseTTSVoice;
         currentUtterance.rate = currentPlaybackRate;
         currentUtterance.onboundary = function(event) {
             if (event.name === 'word') {
