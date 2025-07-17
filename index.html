@@ -880,7 +880,7 @@
     // Cập nhật sự kiện nhấn phím
     document.addEventListener('keydown', function(event) {
         // Kích hoạt bằng Shift + P
-        if (event.shiftKey && (event.key === 'P' || event.key === 'p')) {
+        if (event.altKey && (event.key === 'P' || event.key === 'p')) {
             if (strokeOrderModal.style.display !== 'flex') {
                 const selection = window.getSelection();
                 const selectedText = selection.toString().trim();
